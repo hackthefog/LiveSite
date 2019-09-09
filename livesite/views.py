@@ -14,8 +14,3 @@ def error_404():
 @app.errorhandler(404)
 def page_not_found(e):
     return redirect(url_for('error_404'))
-
-# Error Handelers
-@app.errorhandler(500)
-def server_error(e):
-    return redirect(url_for('error_500'))

@@ -10,10 +10,6 @@ def index():
 def error_404():
     return render_template('404.html'), 404
 
-@app.route("/500", methods=['GET'])
-def error_500():
-    return render_template('500.html'), 500
-
 # Error Handelers
 @app.errorhandler(404)
 def page_not_found(e):

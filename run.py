@@ -1,4 +1,4 @@
-from personal_site import app
+from livesite import app
 
 
 # run app

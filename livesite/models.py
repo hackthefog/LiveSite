@@ -1,7 +1,7 @@
 '''
 Put models, classes here
 '''
-from app import db, app
+from livesite import db, app
 from datetime import datetime
 
 

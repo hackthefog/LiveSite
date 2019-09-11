@@ -1,0 +1,48 @@
+body{
+	background-color: #103246;
+	background-image: url(../../images/header-bg.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #E0E0E0;
+	outline-color: #1F1F1F;
+	font-family: 'GothamRounded', Arial;
+	line-height: 175%;
+
+}
+a{
+	color: #2323EE;
+	outline-color: #E0E0E0;
+}
+a:hover{
+	color: #E0E0E0;
+	outline-color: #2323EE;
+}
+.background{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	min-height: 100vh;
+	height: 100vh;
+	max-height: 100vh;
+}
+.overlay{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	background-color: rgba(32, 122, 238, 0.3);
+	background-size: cover;
+}
+/*
+Rejected Styles
+	.background{
+		background-image: url(../../images/header-bg.png);
+		background-size: cover;
+		min-height: 500px;
+	}
+
+Rejected Colors
+	#2e5c74
+	#56798C
+	#13364B
+	#12354B
+*/

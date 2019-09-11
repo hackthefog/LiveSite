@@ -1,1 +1,0 @@
-Folder to hold any images used on live site

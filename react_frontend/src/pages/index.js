@@ -1,14 +1,29 @@
-import Pusher from 'pusher-js/react-native';
+import React from "react"
+import Layout from "../components/js/layout"
+import SEO from "../components/js/seo"
+import Background from "../components/js/background"
+import Footer from "../components/js/footer"
+import Slideshow from "../components/js/slideshow"
+import Team from "../components/js/team"
+import Judges from "../components/js/judges"
+import Sponsors from "../components/js/sponsors"
+import FAQ from "../components/js/faq"
+import Schedule from "../components/js/schedule"
 
-// Enable pusher logging - don't include this in production
-Pusher.logToConsole = true;
+const IndexPage = () => (
+  <Background>
+	  <Layout>
+	    <SEO title="Home"/>
+	    {/*<h2 style={{fontFamily:`'GothamRounded', Arial`,}}>Welcome to Hack The Fog 2.0!</h2>*/}
+	    <Slideshow/>
+	    <Schedule/>
+	    <FAQ/>
+	    <Team/>
+	    <Judges/>
+	  </Layout>
+	  <Sponsors/>
+	  <Footer/>
+  </Background>
+)
 
-var pusher = new Pusher('db127c4fb0e8097a2831', {
-  cluster: 'us3',
-  forceTLS: true
-});
-
-var channel = pusher.subscribe('my-channel');
-channel.bind('my-event', function(data) {
-  alert(JSON.stringify(data));
-});
+export default IndexPage

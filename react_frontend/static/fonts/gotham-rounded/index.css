@@ -1,0 +1,48 @@
+@font-face {
+  font-family: GothamRounded;
+  font-style: normal;
+  font-weight: 300;
+  src: url('GothamRnd-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: GothamRounded;
+  font-style: italic;
+  font-weight: 300;
+  src: url('GothamRnd-LightIta.otf') format('opentype');
+}
+@font-face {
+  font-family: GothamRounded;
+  font-style: normal;
+  font-weight: normal;
+  src: url('GothamRnd-Book.otf') format('opentype');
+}
+@font-face {
+  font-family: GothamRounded;
+  font-style: italic;
+  font-weight: normal;
+  src: url('GothamRnd-BookIta.otf') format('opentype');
+}
+@font-face {
+  font-family: GothamRounded;
+  font-style: normal;
+  font-weight: 500;
+  src: url('GothamRnd-Medium.otf') format('opentype');
+}
+@font-face {
+  font-family: GothamRounded;
+  font-style: italic;
+  font-weight: 500;
+  src: url('GothamRnd-MedIta.otf') format('opentype');
+}
+@font-face {
+  font-family: GothamRounded;
+  font-style: normal;
+  font-weight: 700;
+  src: url('GothamRnd-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: GothamRounded;
+  font-style: italic;
+  font-weight: 700;
+  src: url('GothamRnd-BoldIta.otf') format('opentype');
+}

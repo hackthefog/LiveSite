@@ -1,0 +1,16 @@
+.socialMedia{
+	align: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 0px;
+}
+img{
+	height: 60px;
+	min-width: 60px;
+	margin-top: auto;
+	margin-left: auto;
+	vertical-align: center;
+	margin-bottom: 0px;
+}

@@ -15,7 +15,7 @@ def index():
     )
 
     channels_client.trigger('my-channel', 'my-event', {'message': 'hello world'})
-    return 200
+    return 'Hello World'
 
 # Error Handelers
 @app.errorhandler(404)

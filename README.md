@@ -1,2 +1,2 @@
-# LiveSite
-attempt at live site using ajax and flask
+## Flask backend for live site
+

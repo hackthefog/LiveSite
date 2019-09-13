@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Title -->
+	<title>HTF 2.0 live site</title>
+
+	<!-- Meta Data -->
+	<meta charset="utf-8">
+	<meta name="robots" content="index,follow">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="keywords" content="Hackthefog, Hack the fog, Htf, Htf 2.0, htf live site, htf live, hackthefog live, hackthefog live site, hack the fog live, hack the fog live site">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<link rel="author" href="Rafael Cenzano">
+	<link rel="manifest" href="{{ url_for('static', filename='img/manifest.json') }}">
+	<meta name="msapplication-TileColor" content="#da532c">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='img/favicon-96x96.png') }}">
+
+	<!-- Apple Icon -->
+	<link rel="apple-touch-icon" sizes="57x57"   href="{{ url_for('static', filename='img/apple-icon-57x57.png') }}">
+	<link rel="apple-touch-icon" sizes="60x60"   href="{{ url_for('static', filename='img/apple-icon-60x60.png') }}">
+	<link rel="apple-touch-icon" sizes="72x72"   href="{{ url_for('static', filename='img/apple-icon-72x72.png') }}">
+	<link rel="apple-touch-icon" sizes="76x76"   href="{{ url_for('static', filename='img/apple-icon-76x76.png') }}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='img/apple-icon-114x114.png') }}">
+	<link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', filename='img/apple-icon-120x120.png') }}">
+	<link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('static', filename='img/apple-icon-144x144.png') }}">
+	<link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', filename='img/apple-icon-152x152.png') }}">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/apple-icon-180x180.png') }}">
+
+	<!-- Andriod Icon -->
+	<link rel="icon" type="image/png" sizes="48x48"    href="{{ url_for('static', filename='img/android-icon-48x48.png') }}">
+	<link rel="icon" type="image/png" sizes="72x72"    href="{{ url_for('static', filename='img/android-icon-72x72.png') }}">
+	<link rel="icon" type="image/png" sizes="96x96"    href="{{ url_for('static', filename='img/android-icon-96x96.png') }}">
+	<link rel="icon" type="image/png" sizes="144x144"  href="{{ url_for('static', filename='img/android-icon-144x144.png') }}">
+	<link rel="icon" type="image/png" sizes="192x192"  href="{{ url_for('static', filename='img/android-icon-192x192.png') }}">
+
+	<!-- Facebook -->
+	<meta property="og:description" content="Hack the Fog 2.0 live site for announcments throughout the event">
+	<meta property="og:title" content="Hack the Fog 2.0 live site">
+	<meta property="og:site_name" content="Hack the Fog 2.0 live site">
+	<meta property="og:image" content={{ url_for('static', filename='img/htf.png') }}>
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="Hack the Fog 2.0 live site">
+	<meta name="twitter:title" content="Hack the Fog 2.0 live site">
+	<meta name="twitter:description" content="Hack the Fog 2.0 live site for announcments throughout the event">
+	<meta name="twitter:image" content={{ url_for('static', filename='img/htf.png') }}>
+
+	<!-- Meta Data -->
+	{% block meta %}
+	{% endblock %}
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/base.css') }}>
+
+    {% block head_css %}
+    {% endblock %}
+
+    <!-- JS -->
+    {% block head_js %}
+    {% endblock %}
+
+</head>
+<body>
+
+	<!--{% include "navbar.html" %}-->
+
+    {% block content %}
+    {% endblock %}
+
+    {% block trailing_js %}
+    {% endblock %}
+
+    <!--{% include "footer.html" %}-->
+    
+</body>
+</html>

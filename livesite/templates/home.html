@@ -1,0 +1,14 @@
+{% block head_js %}
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script src="{{ url_for('static', filename='js/updater.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <h1>Hack the Fog 2.0 live site</h1>
+    <h3>Time left until hacking ends</h3>
+    <p id="countdown"></p>
+{% endblock %}
+
+{% block trailing_js %}
+    <script src="{{ url_for('static', filename='js/countdown.js') }}"></script>
+{% endblock %}

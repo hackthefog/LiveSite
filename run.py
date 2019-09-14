@@ -1,6 +1,5 @@
 from livesite import app
 
-
 # run app
 app.run(
     host='0.0.0.0', # host to view from outside the network

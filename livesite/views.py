@@ -11,15 +11,6 @@ def index():
 
 @app.route("/test", methods=['GET'])
 def test():
-    channels_client = pusher.Pusher(
-        app_id=environ['PUSHER_ID'],
-        key=environ['PUSHER_KEY'],
-        secret=environ['PUSHER_SECRET'],
-        cluster=environ['PUSHER_CLUSTER'],
-        ssl=True
-    )
-    
-    channels_client.trigger('my-channel', 'my-event', {'message': 'hello world'})
     return 'Hello World'
 
 # Error Handelers

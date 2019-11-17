@@ -9,10 +9,6 @@ from os import environ
 def index():
     return render_template('home.html')
 
-@app.route("/test", methods=['GET'])
-def test():
-    return 'Hello World'
-
 # Error Handelers
 @app.errorhandler(404)
 def page_not_found(e):

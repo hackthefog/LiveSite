@@ -27,6 +27,14 @@ Use pip to install needed libraries
 pip install -r requirements.txt
 ```
 
+### Running
+
+Running the program. Make sure your virtualenv is activated.
+
+```
+python run.py
+```
+
 ## Authors
 
 * [**Rafael Cenzano**](https://github.com/RafaelCenzano)

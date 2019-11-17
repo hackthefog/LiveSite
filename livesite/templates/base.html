@@ -52,6 +52,8 @@
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/base.css') }}>
+  <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/navbar.css') }}>
+  <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/footer.css') }}>
 
   {% block head_css %}
   {% endblock %}
@@ -63,7 +65,7 @@
 </head>
 <body>
 
-  <!--{% include "navbar.html" %}-->
+  {% include "navbar.html" %}
 
   {% block content %}
   {% endblock %}
@@ -71,7 +73,7 @@
   {% block trailing_js %}
   {% endblock %}
 
-  <!--{% include "footer.html" %}-->
+  {% include "footer.html" %}
     
 </body>
 </html>

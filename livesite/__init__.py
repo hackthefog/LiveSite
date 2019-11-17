@@ -1,5 +1,6 @@
 # Flask imports
 from flask import Flask
+import config
 
 # Create Flask app
 app = Flask(__name__)

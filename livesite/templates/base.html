@@ -35,9 +35,9 @@
   <link rel="icon" type="image/png" sizes="192x192"  href="{{ url_for('static', filename='img/android-icon-192x192.png') }}">
 
   <!-- Facebook -->
-  <meta property="og:description" content="Hack the Fog 2.0 live site for announcments throughout the event">
   <meta property="og:title" content="Hack the Fog 2.0 live site">
   <meta property="og:site_name" content="Hack the Fog 2.0 live site">
+  <meta property="og:description" content="Hack the Fog 2.0 live site for announcments throughout the event">
   <meta property="og:image" content={{ url_for('static', filename='img/htf.png') }}>
 
   <!-- Twitter -->
@@ -48,6 +48,8 @@
 
   <!-- Meta Data -->
   <meta name="theme-color" content="#207AEE">
+  <meta name="msapplication-TileImage" content="{{ url_for('static', filename='img/ms-icon-144x144.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='seo/manifest.json') }}">
   {% block meta %}
   {% endblock %}
 

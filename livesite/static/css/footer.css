@@ -1,0 +1,38 @@
+footer
+{
+	text-align: center;
+	padding: 2rem 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(58, 64, 72);
+	color: #FFFCF9;
+}
+
+#Description
+{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.25rem;
+	color: #FFFCF9;
+}
+
+#Socials
+{
+	display: flex;
+	margin: 0.5rem 0;
+}
+
+#Socials > a
+{
+	margin-right:0.5rem;
+	color:#eceef0;
+}
+
+span
+{
+	line-height: 1.5;
+	max-width: 24rem;
+	color: #FFFCF9;
+}

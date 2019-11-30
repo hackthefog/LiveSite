@@ -8,25 +8,27 @@
 
 a
 {
+	font-weight: 700;
 	margin: 1rem 1.5rem;
 	text-transform: uppercase;
 	text-decoration: none;
-	color: ${theme.colors.gray[8]};
+	color: rgb(98, 109, 123);
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
 }
 
+@media only screen and (max-width: 760px)
+{
+  #Nav > *
+  {
+    display: none;
+  }
+}
+
 #Nav
 {
 	margin-left: 3rem;
-	/*Rule breaks for some reason*/
-	@media screen and (max-width: 760px)
-	{
-		& > * {
-			display: none;
-		}
-	}
 }
 
 #Logo, #LogoImg

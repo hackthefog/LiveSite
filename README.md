@@ -39,6 +39,7 @@ python run.py
 
 * [**Rafael Cenzano**](https://github.com/RafaelCenzano)
 * [**Marvin Lee**](https://github.com/malee31)
+* [**Cappillen Lee**](https://github.com/calee14)
 
 ## License
 

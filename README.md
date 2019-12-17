@@ -24,12 +24,24 @@ source venv/bin/activate
 Use pip to install needed libraries
 
 ```
+make
+```
+
+OR
+
+```
 pip install -r requirements.txt
 ```
 
 ### Running
 
 Running the program. Make sure your virtualenv is activated.
+
+```
+make run
+```
+
+OR
 
 ```
 python run.py

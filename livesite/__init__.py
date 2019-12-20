@@ -1,6 +1,12 @@
-# Flask imports
+# App imports
 from flask import Flask
 import config
+import firebase_admin
+from firebase_admin import credentials
+from livesite.firebaseauth import *
+
+# Create Firebase default version
+InitializeFirebaseAdmin()
 
 # Create Flask app
 app = Flask(__name__)

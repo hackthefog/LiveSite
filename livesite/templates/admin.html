@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head_js %}
+{% endblock %}
+
+{% block head_css %}
+{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('admin') }}" method="POST">
+    	Email:<br>
+    	<input type="text" name="email">
+    	<br>
+    	Password:<br>
+    	<input type="text" name="password">
+    	<br>
+    	<input type="submit" name="Log in">
+    </form>
+{% endblock %}

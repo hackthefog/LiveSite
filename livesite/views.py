@@ -8,6 +8,10 @@ from time import time
 
 # Views
 @app.route("/", methods=['GET'])
+@app.route("/index", methods=['GET'])
+@app.route("/index/", methods=['GET'])
+@app.route("/home", methods=['GET'])
+@app.route("/home/", methods=['GET'])
 def index():
 	ref = get_database_ref()
 	retrieve_data_latest(ref)

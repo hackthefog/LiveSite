@@ -6,7 +6,7 @@ from firebase_admin import credentials
 from livesite.firebaseauth import *
 
 # Create Firebase default version
-InitializeFirbaseAdmin()
+fir_admin = initialize_admin_credientials()
 
 # Create Flask app
 app = Flask(__name__)

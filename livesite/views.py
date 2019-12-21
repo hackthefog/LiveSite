@@ -8,6 +8,10 @@ from time import time
 
 # Views
 @app.route("/", methods=['GET'])
+@app.route("/index", methods=['GET'])
+@app.route("/index/", methods=['GET'])
+@app.route("/home", methods=['GET'])
+@app.route("/home/", methods=['GET'])
 def index():
     return render_template('home.html')
 

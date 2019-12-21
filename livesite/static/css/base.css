@@ -1,3 +1,12 @@
-html {
+html
+{
 	background-color: white;
+}
+
+body
+{
+	margin: 0;
+	padding: 0;
+	color: rgb(58, 64, 72);
+	font-family: 'GothamRounded', Roboto, -apple-system, sans-serif;
 }

@@ -1,7 +1,11 @@
 from livesite import app
 from flask import render_template, redirect, url_for, request
+from firebase_admin import auth
 from livesite.firebaseauth import *
 from livesite.firebasedb import *
+from livesite.post_model import *
+from time import time
+
 # Views
 @app.route("/", methods=['GET'])
 def index():
@@ -9,8 +13,11 @@ def index():
 
 @app.route("/announcements", methods=['GET'])
 def announcements():
-	ref = access_read_db_privileges()
-	print("System retrieved reference: {0}".format(ref.get()))
+	ref = get_database_ref()
+	data_post = create_post('Hello World', "Tis the season to be jolly", time())
+	status = add_new_data(ref, data_post, access='admin')
+	print(status)
+	return "hello"
 # Error Handelers
 @app.errorhandler(404)
 def page_not_found(e):

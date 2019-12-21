@@ -1,8 +1,8 @@
 from livesite import app
 from flask import render_template, redirect, url_for, request
 from firebase_admin import auth
-from livesite.firebaseauth import *
-from livesite.firebasedb import *
+from livesite.authentication import *
+from livesite.fir_db import *
 from livesite.post_model import *
 from time import time
 

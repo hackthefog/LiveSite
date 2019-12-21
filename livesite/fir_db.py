@@ -1,4 +1,4 @@
-from livesite.firebaseauth import *
+from livesite.authentication import *
 from firebase_admin import db
 
 def get_database_ref(ref='server/data'):

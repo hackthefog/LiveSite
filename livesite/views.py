@@ -1,12 +1,16 @@
 from livesite import app
 from flask import render_template, redirect, url_for, request
 from livesite.firebaseauth import *
-
+from livesite.firebasedb import *
 # Views
 @app.route("/", methods=['GET'])
 def index():
     return render_template('home.html')
 
+@app.route("/announcements", methods=['GET'])
+def announcements():
+	ref = access_read_db_privileges()
+	print("System retrieved reference: {0}".format(ref.get()))
 # Error Handelers
 @app.errorhandler(404)
 def page_not_found(e):

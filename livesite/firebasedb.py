@@ -1,39 +1,37 @@
+from livesite.firebaseauth import *
+from firebase_admin import db
 
-def access_admin_db_privileges():
-	'''
-	Params:
-		None
-	Access 
-	'''
-	import firebase_admin
-	from firebase_admin import credentials
-	from firebase_admin import db
-	# Initialize the app with a service account, granting admin privileges
-	firebase_admin.initialize_app(cred, {
-	    'databaseURL': 'https://databaseName.firebaseio.com'
-	})
+def get_database_ref(ref='server/data'):
 
-	ref = db.reference('restricted_access/secret_document')
+    ref = db.reference(ref)
+    print(ref.get())
 
-	return ref
+    return ref
 
-def access_read_db_privileges():
-	'''
-	Params:
-		None
-	Only able to read firebase database info
-	'''
-	import firebase_admin
-	from firebase_admin import credentials
-	from firebase_admin import db
-	# Initialize the app with a service account, granting admin privileges
-	firebase_admin.initialize_app(cred, {
-	    'databaseURL': 'https://databaseName.firebaseio.com',
-	    'databaseAuthVariableOverride': {
-	    	'uid': 'my-service-worker'
-	    }
-	})
+def add_new_data(ref, data_dict, access='basic'):
+    '''
+    Params:
+        Reference: location of data - 'server/data'
+        Access: Admin or read only
+        Data_dict: 
+            Title: String,
+            Content: String,
+            Timestamp: Date
+    Returns:
+        False: Unsuccessful
+        True: Successful
+    '''
 
-	ref = db.reference('/some_resource')
-
-	return ref
+    if access == 'basic':
+    	# No writing access with basic
+        return False
+    elif access == 'admin':
+    	# Get the reference of the posts
+        post_ref = ref.child('posts')
+        # Attempt to write the new data to the db
+        try:
+            post_ref.update(data_dict)
+            return True
+        except Exception as e:
+            print("Database Error: {0}".format(e))
+            return False

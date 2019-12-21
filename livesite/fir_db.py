@@ -1,7 +1,8 @@
-from livesite.authentication import *
+from livesite.authentication import initialize_admin_credientials
 from firebase_admin import db
+from livesite.post_model import Post
 
-def get_database_ref(ref='server/data'):
+def get_database_ref(ref='/'):
 
     ref = db.reference(ref)
     print(ref.get())
@@ -16,7 +17,7 @@ def add_new_data(ref, data_dict, access='basic'):
         Data_dict: 
             Title: String,
             Content: String,
-            Timestamp: Date
+            Time: Timestamp
     Returns:
         False: Unsuccessful
         True: Successful
@@ -35,3 +36,21 @@ def add_new_data(ref, data_dict, access='basic'):
         except Exception as e:
             print("Database Error: {0}".format(e))
             return False
+
+def retrieve_data_in_order(ref):
+    '''
+    Params:
+        Reference: location of data - 'server/data'
+    Returns:
+        Post: Post Objet
+    '''
+    posts = []
+    snapshot = ref.child('posts').get()
+    for key, val in snapshot.items():
+        posts.append(Post(val))
+    return posts
+
+def retrieve_data_latest(ref):
+    snapshot = ref.child('posts').order_by_child('time').limit_to_last(1).get()
+    for key, val in snapshot.items():
+        return Post(val)

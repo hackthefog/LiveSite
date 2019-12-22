@@ -14,13 +14,13 @@ from time import time
 @app.route("/home/", methods=['GET'])
 def index():
 	ref = get_database_ref()
-	retrieve_data_latest(ref)
-	return render_template('home.html')
+	post = retrieve_data_latest(ref)
+	return render_template('home.html', recent_post=post)
 
 @app.route("/announcements", methods=['GET'])
 def announcements():
 	ref = get_database_ref()
-	data_post = create_post('Hello World', "Tis the season to be jolly", time())
+	data_post = create_post('Merry Christmas', "This is the most recent post", time())
 	status = add_new_data(ref, data_post, access='admin')
 	print(status)
 	posts = retrieve_data_in_order(ref)

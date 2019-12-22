@@ -7,6 +7,15 @@
 {% endblock %}
 
 {% block content %}
+	<div class="recent_post" id="recent_post">
+		<h2>Hack The Fog Posts</h2>
+		<h4>{{ recent_post.title }}</h4>
+		<p>{{ recent_post.content }}</p>
+		{% if recent_post.imageurl %}
+			<img src="{{recent_post.imageurl}}">
+		{% endif %}
+		<h5>{{ recent_post.time }}</h5>
+	</div>
     <h1>Hack the Fog 2.0 live site</h1>
     <h3>Time left until hacking ends</h3>
     <p id="countdown"></p>

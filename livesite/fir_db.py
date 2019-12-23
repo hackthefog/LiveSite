@@ -52,7 +52,7 @@ def retrieve_data_in_order(ref):
     posts = []
     snapshot = ref.child('posts').order_by_child('time').get()
     for key, val in snapshot.items():
-        posts.append(Post(val))
+        posts.insert(0, Post(val))
     return posts
 
 def retrieve_data_latest(ref):

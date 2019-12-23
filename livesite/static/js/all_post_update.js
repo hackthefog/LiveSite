@@ -15,5 +15,5 @@ function update_all_post() {
 update_all_post()
 var timer, delay = 500; // 500 milliseconds = half a second
 timer = setInterval(function(){
-    update_post()
+    update_all_post()
 }, delay);

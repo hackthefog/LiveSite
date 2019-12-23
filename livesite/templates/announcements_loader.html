@@ -1,0 +1,11 @@
+{% for post in posts %}
+	<div class="recent_post" id="recent_post">
+		<h2>Hack The Fog Posts</h2>
+		<h4>{{ post.title }}</h4>
+		<p>{{ post.content }}</p>
+		{% if post.imageurl %}
+			<img src="{{post.imageurl}}">
+		{% endif %}
+		<h5>{{ post.time }}</h5>
+	</div>
+{% endfor%}

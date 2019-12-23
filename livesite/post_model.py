@@ -20,4 +20,4 @@ class Post(object):
 		self.content = data.get('content')
 		self.time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(data.get('time')))
 		self.float_time = data.get('time')
-		self.image = data.get('imageurl')
+		self.image = data.get('imageurl') # may be null

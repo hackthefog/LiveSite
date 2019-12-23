@@ -1,10 +1,12 @@
 from livesite import app
 from flask import render_template, redirect, url_for, request
-from firebase_admin import auth
+from firebase_admin import auth, db
 from livesite.authentication import initialize_admin_credientials, initialize_basic_credientials
 from livesite.fir_db import get_database_ref, add_new_data, retrieve_data_in_order, retrieve_data_latest
 from livesite.post_model import create_post
 from time import time
+import threading
+
 
 # Views
 @app.route("/", methods=['GET'])
@@ -13,20 +15,33 @@ from time import time
 @app.route("/home", methods=['GET'])
 @app.route("/home/", methods=['GET'])
 def index():
-	ref = get_database_ref()
-	retrieve_data_latest(ref)
 	return render_template('home.html')
+
+@app.route("/update_recent_posts", methods=["GET", "POST"])
+def update_recent_posts():
+	'''
+	Reference - access to db
+	Post - post object to return
+	'''
+
+	ref = get_database_ref()
+
+	post = retrieve_data_latest(ref)
+
+	return render_template('recent_post.html', recent_post=post)
+
 
 @app.route("/announcements", methods=['GET'])
 def announcements():
 	ref = get_database_ref()
-	data_post = create_post('Hello World', "Tis the season to be jolly", time())
+	data_post = create_post('Merry Christmas!!!', "I got this thing to work", time())
 	status = add_new_data(ref, data_post, access='admin')
 	print(status)
 	posts = retrieve_data_in_order(ref)
 	for post in posts:
 		print(post.time)
 	return "hello"
+
 # Error Handelers
 @app.errorhandler(404)
 def page_not_found(e):

@@ -1,9 +1,12 @@
-from livesite import app
 from flask import render_template, redirect, url_for, request
-from firebase_admin import auth, db
+from flask_login import login_required, login_user, logout_user 
+from livesite import app, login_manager
 from livesite.authentication import initialize_admin_credientials, initialize_basic_credientials
 from livesite.fir_db import get_database_ref, add_new_data, retrieve_data_in_order, retrieve_data_latest
 from livesite.post_model import create_post
+from livesite.confidential.login_credentials import *
+from livesite.UserModel import User
+from firebase_admin import auth, db
 from time import time
 import threading
 
@@ -48,10 +51,9 @@ def update_all_posts():
 
 	return render_template('announcements_loader.html', posts=posts)
 
-# Error Handelers
-@app.errorhandler(404)
-def page_not_found(e):
-    return 404
+@login_manager.user_loader
+def load_user(user_id):
+    return User(login_email, login_password, user_id)
 
 @app.route("/admin/login", methods=['GET', 'POST'])
 def admin_login():
@@ -69,14 +71,23 @@ def admin_login():
 			# send back to login
 			return render_template('admin.html')
 		else:
-			user = get_user_by_email(request.form['email'])
-			# authenticated = is_user_authenticated(user, request.form['password'])
-			return user.uid
+			if request.form['email'] == login_email and request.form['password'] == login_password:
+				user = User(request.form['email'], request.form['password'])
+				login_user(user)
+				return redirect(url_for('edit_new_data'))
+			return render_template('admin.html')
 	else:
 		# send to login
 		return render_template('admin.html')
 
+@app.route("/admin/logout")
+@login_required
+def logout():
+    logout_user()
+    return "Logged out"
+
 @app.route("/admin/edit/add", methods=['GET', 'POST'])
+@login_required
 def edit_new_data():
 	'''
 	For admin adding new posts
@@ -89,12 +100,19 @@ def edit_new_data():
 		Return back to edit page
 	'''
 	if request.method == 'POST':
-		if request.form['title'] == None and request.form['content'] == None:
+		form = request.form
+		if form['title'] != None and form['content'] != None:
 			ref = get_database_ref()
-			data_post = create_post(request.form['title'], request.form['content'], time(), request.form.get('imageurl'))
+			data_post = create_post(form['title'], form['content'], time(), form.get('imageurl'))
 			status = add_new_data(ref, data_post, access='admin')
+			return f"Created post: Title-{form['title']}, Content-{form['content']}, Imageurl-{form.get('imageurl')}"
+		return render_template('edit_new_data.html')
+	elif request.method == 'GET':
+		return render_template('edit_new_data.html')
 			
-
+@app.errorhandler(404)
+def page_not_found(error):
+    return "404"
 
 
 

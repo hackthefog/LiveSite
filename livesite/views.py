@@ -33,22 +33,28 @@ def update_recent_posts():
 
 @app.route("/announcements", methods=['GET'])
 def announcements():
+	return render_template('announcements.html')
+
+@app.route("/update_all_posts")
+def update_all_posts():
+	'''
+	Reference - access to db
+	Post - post object to return
+	'''
+
 	ref = get_database_ref()
-	data_post = create_post('Merry Christmas!!!', "I got this thing to work", time())
-	status = add_new_data(ref, data_post, access='admin')
-	print(status)
+
 	posts = retrieve_data_in_order(ref)
-	for post in posts:
-		print(post.time)
-	return "hello"
+
+	return render_template('announcements_loader.html', posts=posts)
 
 # Error Handelers
 @app.errorhandler(404)
 def page_not_found(e):
     return 404
 
-@app.route("/admin", methods=['GET', 'POST'])
-def admin():
+@app.route("/admin/login", methods=['GET', 'POST'])
+def admin_login():
 	'''
 	For admin login
 	POST: 
@@ -69,3 +75,26 @@ def admin():
 	else:
 		# send to login
 		return render_template('admin.html')
+
+@app.route("/admin/edit/add", methods=['GET', 'POST'])
+def edit_new_data():
+	'''
+	For admin adding new posts
+	POST:
+		form['title']
+		form['content']
+		form['imageurl']
+	GET:
+		Parameters: null
+		Return back to edit page
+	'''
+	if request.method == 'POST':
+		if request.form['title'] == None and request.form['content'] == None:
+			ref = get_database_ref()
+			data_post = create_post(request.form['title'], request.form['content'], time(), request.form.get('imageurl'))
+			status = add_new_data(ref, data_post, access='admin')
+			
+
+
+
+

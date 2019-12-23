@@ -3,8 +3,8 @@
 		<h2>Hack The Fog Posts</h2>
 		<h4>{{ post.title }}</h4>
 		<p>{{ post.content }}</p>
-		{% if post.imageurl %}
-			<img src="{{post.imageurl}}">
+		{% if post.imageurl != None %}
+			<img src="{{post.imageurl}}" style="max-width:500px; max-height:300px;">
 		{% endif %}
 		<h5>{{ post.time }}</h5>
 	</div>

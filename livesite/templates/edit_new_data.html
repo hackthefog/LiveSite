@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head_js %}
+{% endblock %}
+
+{% block head_css %}
+{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('edit_new_data') }}" method="POST">
+    	Title:<br>
+    	<input type="text" name="title">
+    	<br>
+    	Content:<br>
+    	<textarea name="content" rows="10" cols="30"></textarea>
+  		<br>
+  		Imageurl:<br>
+  		<input type="text" name="imageurl">
+    	<br>
+    	<input type="submit" name="Add post">
+    </form>
+{% endblock %}

@@ -6,13 +6,8 @@ from livesite.fir_db import get_database_ref, add_new_data, retrieve_data_in_ord
 from livesite.post_model import create_post
 from livesite.ajax_service import update_template_post
 from time import time
+import threading
 
-# class StatusDenied(Exception):
-#     pass
-
-# @app.errorhandler(StatusDenied)
-# def redirect_on_status_denied(error):
-#     return redirect("http://google.com")
 
 # Views
 @app.route("/", methods=['GET'])
@@ -23,34 +18,16 @@ from time import time
 def index():
 	return render_template('home.html')
 
-def recent_data_listener(event):
-	print("Event type", event.event_type)
-	print("Event path", event.path)
-	print("Event data", event.data)
-
-	# Get the reference again
-	ref = get_database_ref()
-
-	# Get only the first value which is the recent one
-	post = retrieve_data_latest(ref)
-
-	### NEED HELP WITH RENDERING THE TEMPLATE FOR THE AJAX
-
 @app.route("/update_recent_posts", methods=["GET", "POST"])
 def update_recent_posts():
 	'''
 	Reference - access to db
 	Post - post object to return
 	'''
-	if request.method == 'POST':
-		post = request.args['recent_post']
-		return render_template('recent_post.html', recent_post=post)
 
 	ref = get_database_ref()
 
 	post = retrieve_data_latest(ref)
-
-	ref.listen(recent_data_listener)
 
 	return render_template('recent_post.html', recent_post=post)
 
@@ -58,13 +35,14 @@ def update_recent_posts():
 @app.route("/announcements", methods=['GET'])
 def announcements():
 	ref = get_database_ref()
-	data_post = create_post('Merry Christmas', "This is the most recent post", time())
+	data_post = create_post('Merry Christmas!!!', "This is the most recent post", time())
 	status = add_new_data(ref, data_post, access='admin')
 	print(status)
 	posts = retrieve_data_in_order(ref)
 	for post in posts:
 		print(post.time)
 	return "hello"
+
 # Error Handelers
 @app.errorhandler(404)
 def page_not_found(e):

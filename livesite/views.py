@@ -4,7 +4,6 @@ from firebase_admin import auth, db
 from livesite.authentication import initialize_admin_credientials, initialize_basic_credientials
 from livesite.fir_db import get_database_ref, add_new_data, retrieve_data_in_order, retrieve_data_latest
 from livesite.post_model import create_post
-from livesite.ajax_service import update_template_post
 from time import time
 import threading
 
@@ -35,7 +34,7 @@ def update_recent_posts():
 @app.route("/announcements", methods=['GET'])
 def announcements():
 	ref = get_database_ref()
-	data_post = create_post('Merry Christmas!!!', "This is the most recent post", time())
+	data_post = create_post('Merry Christmas!!!', "I got this thing to work", time())
 	status = add_new_data(ref, data_post, access='admin')
 	print(status)
 	posts = retrieve_data_in_order(ref)

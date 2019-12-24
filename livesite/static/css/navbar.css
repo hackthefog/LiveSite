@@ -1,0 +1,37 @@
+#navWrapper
+{
+	width: 100%;
+	margin: 0.5rem 0 2rem;
+	display: flex;
+	align-items: center;
+}
+
+a
+{
+	font-weight: 700;
+	margin: 1rem 1.5rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgb(98, 109, 123);
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 760px)
+{
+  #Nav > *
+  {
+    display: none;
+  }
+}
+
+#Nav
+{
+	margin-left: 3rem;
+}
+
+#Logo, #LogoImg
+{
+	width: 6rem;
+}

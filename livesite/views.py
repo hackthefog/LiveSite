@@ -8,7 +8,6 @@ from livesite.confidential.login_credentials import *
 from livesite.UserModel import User
 from firebase_admin import auth, db
 from time import time
-import threading
 
 
 # Views

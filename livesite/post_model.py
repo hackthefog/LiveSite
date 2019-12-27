@@ -30,7 +30,7 @@ class Post(object):
         self.title = data.get('title')
         self.content = data.get('content')
         self.time = time.strftime(
-            '%Y-%m-%d %H:%M:%S',
+            '%m/%d/%Y %I:%M:%S %p',
             time.localtime(
                 data.get('time')))
         self.float_time = data.get('time')

@@ -74,14 +74,15 @@
 
   {% include "navbar.html" %}
 
-  {% block content %}
-  {% endblock %}
-  <div style="height: 100vh;">
-    <!-- Just delete this div -->
-  </div>
+  <main>
 
-  {% block trailing_js %}
-  {% endblock %}
+    {% block content %}
+    {% endblock %}
+
+    {% block trailing_js %}
+    {% endblock %}
+    
+  </main>
 
   {% include "footer.html" %}
     

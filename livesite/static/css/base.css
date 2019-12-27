@@ -10,3 +10,14 @@ body
 	color: rgb(58, 64, 72);
 	font-family: 'GothamRounded', Roboto, -apple-system, sans-serif;
 }
+
+main
+{
+	padding: 0 2em;
+}
+
+.recent_post
+{
+	padding: 0;
+	padding-bottom: 1.5em;
+}

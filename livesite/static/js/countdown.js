@@ -1,9 +1,8 @@
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+var countDownDate = new Date("March 25, 2020 11:00:00").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-
+// updating the countdown
+function update_countdown() {
   // Get today's date and time
   var now = new Date().getTime();
     
@@ -25,4 +24,12 @@ var x = setInterval(function() {
     clearInterval(x);
     document.getElementById("countdown").innerHTML = "00:00:00";
   }
+}
+
+// running the initial countdown
+update_countdown()
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+  update_countdown()
 }, 1000);

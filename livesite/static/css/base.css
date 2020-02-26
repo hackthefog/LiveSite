@@ -20,10 +20,23 @@ main
 {
 	padding: 0;
 	padding-bottom: 1.5em;
+	display: flex;
+	flex-direction: column;
+}
+
+.recent_post > h2
+{
+	margin-bottom: 0;
+}
+
+.recent_post > h5
+{
+	margin-top: 0;
 }
 
 .recent_post > img
 {
-	width: min(100%, 500px);
+	width: min(100%, 750px);
 	height: auto;
+	align-self: center;
 }

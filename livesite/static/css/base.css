@@ -31,12 +31,17 @@ main
 
 .recent_post > h5
 {
-	margin-top: 0;
+	margin: 0;
 }
 
 .recent_post > img
 {
-	width: min(100%, 750px);
+	width: min(100%, 1000px);
 	height: auto;
 	align-self: center;
+}
+
+.recent_post > p
+{
+	margin-top: 2px;
 }

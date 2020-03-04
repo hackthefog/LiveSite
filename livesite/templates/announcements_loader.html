@@ -1,10 +1,10 @@
 {% for post in posts %}
-	<div class="recent_post" id="recent_post">
-		<h2>{{ post.title }}</h2>
-		<h5>{{ post.time }}</h5>
-		<p>{{ post.content }}</p>
+	<div class="recent_post">
+		<h2 class="postTitle">{{ post.title }}</h2>
+		<h5 class="postTime">{{ post.time }}</h5>
+		<p class="postContent">{{ post.content }}</p>
 		{% if post.imageurl != None %}
-			<img src="{{post.imageurl}}" style="max-width:500px; max-height:300px;">
+			<img class="postImg" src="{{post.imageurl}}" style="max-width:500px; max-height:300px;">
 		{% endif %}
 	</div>
 {% endfor%}
